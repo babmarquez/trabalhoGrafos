@@ -18,21 +18,24 @@ public class Main {
     
     private boolean verificaPalavra(String palavra){
         //pega a string e coloca pra upper
+        palavra = palavra.toUpperCase();
         //lê uma letra, verificando se ela é válida
-        //se é A ou B, adiciona na pilha
-        //se for um C sai do loop de inserção e começa o de remoção
-        //lê uma letra, faz pop e compara, verificando se é A ou B
-        
+        for(char letra : palavra.toCharArray()) {
+            validaLetraValida(letra);
+            //se é A ou B, adiciona na pilha
+            //se for um C sai do loop de inserção e começa o de remoção
+            //lê uma letra, faz pop e compara, verificando se é A ou B
+        }
         return true;
     }
     
     ///Verifica se a letra é uma das letras aceitáveis
-    private boolean verificaLetraValida(char letra){
+    private void validaLetraValida(char letra){
         switch(letra){
             case 'A':
             case 'B':
             case 'C':
-                return true;
+                return;
             default:
                 return false;
         }
