@@ -1,6 +1,13 @@
 # trabalhoGrafos
-Repositório dedicado ao primeiro trabalho de grafos
 
+Repositório dedicado ao primeiro trabalho de grafos do semestre 2/2017
 
-- Vamos criar uma pasta para cada uma das questões ou vamos manter todas no mesmo projeto?
-- Já coloca as que tu fez aqui que eu olho assim que sobrar um tempinho :D
+- Separamos as questões em packages diferentes;
+- O método main de cada package testa a função que foi criada conforme a solicitação feita pelo trabalho;
+
+Observações:
+- Questão 1: feita, mas falta implementar a busca pelo nova sem www e .com
+- Questão 2: totalmente completa
+- Questão 3: em andamento
+- Questão 4: ainda não iniciada
+- Questão 5: ainda não iniciada
