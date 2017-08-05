@@ -9,13 +9,11 @@ package Questao3Pilhas;
  *
  * @author Ana Paula Fidelis e Bárbara Marquez
  */
-public class Main {
+public class PilhaCheiaException extends RuntimeException
+{
+    public PilhaCheiaException() { }
 
-    public static void main(String[] args) throws LetraInvalidaException
-    {
-        Palavra palavra = new Palavra("ABABABCBABABA");
-        
-        boolean valida = palavra.verificaPalavra();
-        System.out.println(valida ? "Aceita" : "Negada");
+    public PilhaCheiaException(String message) {
+        super(message);
     }   
 }

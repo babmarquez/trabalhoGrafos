@@ -7,15 +7,15 @@ package Questao3Pilhas;
 
 /**
  *
- * @author Barbara
+ * @author Ana Paula Fidelis e Bárbara Marquez
  */
-public class LetraInvaidaException extends Exception {
+public class LetraInvalidaException extends Exception {
 
     /**
      * Creates a new instance of <code>LetraInvaidaException</code> without
      * detail message.
      */
-    public LetraInvaidaException() {
+    public LetraInvalidaException() {
         super("Letra inválida!");
     }
 
@@ -25,7 +25,7 @@ public class LetraInvaidaException extends Exception {
      *
      * @param msg the detail message.
      */
-    public LetraInvaidaException(String msg) {
+    public LetraInvalidaException(String msg) {
         super(msg);
     }
 }

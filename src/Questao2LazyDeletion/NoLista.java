@@ -8,7 +8,7 @@ package Questao2LazyDeletion;
 
 /**
  *
- * @author Ana Paula Fidelis e Barbara Marquez
+ * @author Ana Paula Fidelis e Bárbara Marquez
  * @param <T>
  */
 public class NoLista<T> {
