@@ -19,10 +19,18 @@ public class Main {
         lista.inserir("www.alou.com");
         
         lista.exibir();
+        
         System.out.println("___________________________________");
         System.out.println(lista.buscar("www.tchau.com").getInfo());
         System.out.println(lista.buscar("www.oi.com").getInfo());
         System.out.println("___________________________________");
         lista.exibir();
+        
+        System.out.println("___________________________________");
+        System.out.println("Testes Baby");
+        System.out.println("___________________________________");
+        System.out.println(lista.buscar("www.tchau.com").getInfo());
+        System.out.println(lista.buscar("www.oi.com").getInfo());
+        System.out.println("___________________________________");
     }
 }
