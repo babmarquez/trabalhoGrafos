@@ -36,16 +36,47 @@ public class Lista<T> {
         return (primeiro == null);        
     }
     
-    public NoLista<T> buscar(T info){
+    public NoLista<T> buscar(T info)
+    {
         NoLista<T> p = primeiro;
+        String busca = FormatarPalavraDeBusca(info.toString().toUpperCase());
         while (p != null) {            
-            if (p.getInfo().equals(info)){
+            if (verificaNomeSite(busca, p)){
                 mudaPrimeiro(p);
                 return p;
             }
             p = p.getProximo();
         }
         return null;
+    }
+    
+    private boolean verificaNomeSite(String busca, NoLista<T> no)
+    {
+        String info = no.getInfo().toString().toUpperCase();
+        //Remove os espacos em branco
+        String[] palavras = busca.split(" ");
+        //Pecisa ser compativel com todos os filtros
+        for(String palavra : palavras){
+            if(!info.contains(palavra)){
+                return false;
+            }
+        }
+        
+        return true;
+    }
+    
+    /// Faz replace de caracteres que nao 
+    private String FormatarPalavraDeBusca(String palavra){
+        return palavra.replaceAll("[ÃÂÀÁÄ]", "A")
+                .replaceAll("[ÊÈÉË]", "E")
+                .replaceAll("[ÎÌÍÏ]", "I")
+                .replaceAll("[ÕÔÒÓÖ]", "O")
+                .replaceAll("[ÛÙÚÜ]", "U")
+                .replace('Ç', 'C')
+                .replace('Ñ', 'N')
+                .replace("WWW.","")
+                .replace(".COM","")
+                .replace(".BR","");
     }
     
     public void mudaPrimeiro(NoLista<T> no){
