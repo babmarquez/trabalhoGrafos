@@ -86,25 +86,51 @@ public class VetorSoldado {
         return result;
     }
 
-    public int NumeroSorteado() {
+    public void restaUm() {
+        //Sorteia um soldado
+        posicaoAtual = NumeroSorteado();
+        //Enquanto tiver mais de um
+        while (tamanho > 1){
+            //Sorteia um número
+            int numSorteado = NumeroSorteado();
+            //Remove o cara
+            RemoverSoldadoSorteado(numSorteado);
+        }
+        //Retorna o vencedor
+        System.out.println(String.format("Soldado que restou: {0}", info[0].getIdentificador()));
+    }
+    
+    private int NumeroSorteado() {
         Random random = new Random(INTERVALO_DE_NUMEROS_INICIO);
         int numero = random.nextInt(INTERVALO_DE_NUMEROS_FIM);
+        
+        //Se o número for 0, sorteia de novo
+        if (numero == 0)
+            return NumeroSorteado();
         
         return numero;
     }
 
-    public int RetornarPosicaoRemover() {
-        return 0;
+    private void RemoverSoldadoSorteado(int numSorteado) {
+        if(numSorteado > 0) {
+            posicaoAtual = PercorrerADireita(numSorteado);
+        }
+        else {
+            posicaoAtual = PercorrerAEsquerda(numSorteado);
+        }
+        System.out.println(String.format("Número sorteado: {0} - Soldado removido: {1}",numSorteado, info[posicaoAtual]));
+        remover(posicaoAtual);
+        //Compara se removeu a última posição do vetor
+        if (posicaoAtual > tamanho){
+            posicaoAtual = 0;
+        }
     }
-
-    public Soldado restaUm() {
-        //Sorteia um soldado
-        posicaoAtual = NumeroSorteado();
-        //Enquanto tiver mais de um
-        //Sorteia um número
-        //Contabiliza esse número
-        //Remove o cara
-        //Retorna o vencedor
-        return info[0];
+    
+    private int PercorrerAEsquerda(int numSorteado){
+        
+    }
+    
+    private int PercorrerADireita(int numSorteado){
+        
     }
 }
