@@ -20,12 +20,10 @@ public class Main {
         
         System.out.println("________________ EXIBE A LISTA ___________________");
         lista.exibir();
-        System.out.println("________________ EXIBE O RESUL ___________________");
         System.out.println(lista.buscar("www.tchau.com").getInfo());
         System.out.println(lista.buscar("www.oi.com").getInfo());
         System.out.println(lista.buscar("oi").getInfo());
         System.out.println(lista.buscar("alo").getInfo());
         System.out.println("___________________________________");
-        //lista.exibir();
     }
 }
