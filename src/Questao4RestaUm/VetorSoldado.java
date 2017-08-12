@@ -12,8 +12,7 @@ import java.util.Random;
  * @author Barbara
  */
 public class VetorSoldado {
-    private final int INTERVALO_DE_NUMEROS_INICIO = -9;
-    private final int INTERVALO_DE_NUMEROS_FIM = 9;
+    private final int NUMEROS_RANDOM = 10;
     
     private Soldado[] info;
     private int limite;
@@ -50,8 +49,22 @@ public class VetorSoldado {
         this.tamanho = tamanho;
     }
 
+    public boolean estaCheio() {
+        return tamanho == info.length;
+    }
+    
     public boolean estaVazio() {
         return tamanho == 0;
+    }
+
+    public void adicionar(Soldado soldado) {
+        if(estaCheio()){
+            System.err.println("Vetor está cheio");
+        }
+        else {
+            info[tamanho] = soldado;
+            tamanho++;
+        }
     }
 
     public void remover(int posicao) {
@@ -59,10 +72,10 @@ public class VetorSoldado {
         if (posicao == tamanho) {
             info[posicao] = null;
         } else {
-            for (int i = posicao; i < tamanho; i++) {
-                info[i] = info[i + 1];
+            for (; posicao < tamanho-1; posicao++) {
+                info[posicao] = info[posicao + 1];
             }
-            info[tamanho] = null;
+            info[tamanho-1] = null;
         }
 
         tamanho--;
@@ -85,6 +98,12 @@ public class VetorSoldado {
 
         return result;
     }
+    
+    private void ImprimirLista(){
+        for (int i = tamanho - 1; i >= 0; i--) {
+            System.out.println("[" + i + "] - " + info[i].getIdentificador());
+        }
+    }
 
     public void restaUm() {
         //Sorteia um soldado
@@ -97,12 +116,12 @@ public class VetorSoldado {
             RemoverSoldadoSorteado(numSorteado);
         }
         //Retorna o vencedor
-        System.out.println(String.format("Soldado que restou: {0}", info[0].getIdentificador()));
+        System.out.println("Soldado que restou: " + info[0].getIdentificador());
     }
     
     private int NumeroSorteado() {
-        Random random = new Random(INTERVALO_DE_NUMEROS_INICIO);
-        int numero = random.nextInt(INTERVALO_DE_NUMEROS_FIM);
+        Random random = new Random();
+        int numero = random.nextInt(NUMEROS_RANDOM);
         
         //Se o número for 0, sorteia de novo
         if (numero == 0)
@@ -110,16 +129,21 @@ public class VetorSoldado {
         
         return numero;
     }
+    
+    private boolean ENegativo(){
+        return new Random().nextInt(2) == 0;
+    }
 
     private void RemoverSoldadoSorteado(int numSorteado) {
-        if(numSorteado > 0) {
-            posicaoAtual = PercorrerADireita(numSorteado);
-        }
-        else {
+        if(ENegativo()) {
             posicaoAtual = PercorrerAEsquerda(numSorteado);
         }
-        System.out.println(String.format("Número sorteado: {0} - Soldado removido: {1}",numSorteado, info[posicaoAtual]));
+        else {
+            posicaoAtual = PercorrerADireita(numSorteado);
+        }
+        System.out.println("Número sorteado:" + numSorteado + " - Posição removida: "+posicaoAtual+" - Soldado removido: " + info[posicaoAtual].getIdentificador());
         remover(posicaoAtual);
+        ImprimirLista();
         //Compara se removeu a última posição do vetor
         if (posicaoAtual > tamanho){
             posicaoAtual = 0;
@@ -127,10 +151,30 @@ public class VetorSoldado {
     }
     
     private int PercorrerAEsquerda(int numSorteado){
+        int posicao = this.posicaoAtual;
         
+        for (int quantidade = 0; quantidade <= numSorteado; quantidade++) {
+            if (posicao == 0){
+                posicao= this.tamanho-1;
+            } else {
+                posicao--;
+            }
+        }
+        
+        return posicao;
     }
     
     private int PercorrerADireita(int numSorteado){
+        int posicao = this.posicaoAtual;
         
+        for (int quantidade = 0; quantidade <= numSorteado; quantidade++) {
+            if (posicao == this.tamanho-1){
+                posicao= 0;
+            } else {
+                posicao++;
+            }
+        }
+        
+        return posicao;
     }
 }
