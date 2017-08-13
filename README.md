@@ -10,7 +10,7 @@ Observações:
 - Questão 2: totalmente completa
 - Questão 3: totalmente completa
 - Questão 4: em andamento
-- Questão 5: ainda não iniciada
+- Questão 5: em andamento
 
 //*
 OBSERVAÇÕES FEITAS NA SALA PELO PROFESSOR:
@@ -25,9 +25,8 @@ Questão 5:
 
 	Onde os "- e +" são de acordo a quantidade de andamento dos nós
 
-					0
+					0	
 				1		1
-			2	  2	  2		2
-
+			2	   2 2		2
 	
 *//
