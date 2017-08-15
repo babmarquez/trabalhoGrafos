@@ -14,6 +14,8 @@ package Questao5QuedaFolhasArvore;
  */
 public class ArvoreBinaria<T> {
     private NoArvoreBinaria<T> raiz;
+    private Lista<PilhaFolhas> pilhaFolhas;
+    private int pos;
 
     public ArvoreBinaria() {
         this.raiz = null;
@@ -41,28 +43,49 @@ public class ArvoreBinaria<T> {
     }
     
     @Override
-    public String toString(){
-        return arvorePre(this.raiz);
+    public String toString(){        
+        pilhaFolhas = new Lista<>();
+        
+        //adiciona a posiçao 0 que e a raiz
+        pos = 0;
+        empilhaFolhas(pos, raiz);
+        
+        arvorePre(this.raiz);
+        
+        return pilhaFolhas.toString();
     }
         
-    private String arvorePre(NoArvoreBinaria<T> no){
-        /*String result = "<"+
-                ((no == null)? "" : no.getInfo() + 
-                                    (arvorePre(no.getEsquerda()))+
-                                    (arvorePre(no.getDireita())))+                
-               ">";*/
+    private void arvorePre(NoArvoreBinaria<T> no){
+        //o temp armazena o contador da posiçao pois com
+        int temp;
         
-        /*String result = ((no == null)? "" : 
-                                    (no.getEsquerda() != null ? "-"+(arvorePre(no.getEsquerda()))+" " : "")+
-                                     no.getInfo()+
-                                    (no.getDireita() != null ? "+"+(arvorePre(no.getDireita() ))+" " : "") );*/
+        if (no.getEsquerda() != null){
+            temp = pos--;
+            empilhaFolhas(pos, no.getEsquerda());
+            arvorePre(no.getEsquerda());
+            pos = temp;
+        }
         
-        String result = ((no == null)? "" : 
-                                    (arvorePre(no.getEsquerda()))+
-                                     no.getInfo()+
-                                    (arvorePre(no.getDireita() )));
-        
-         
-        return result; 
+        if (no.getDireita() != null){
+            temp = pos++;
+            empilhaFolhas(pos, no.getDireita());
+            arvorePre(no.getDireita());
+            pos = temp;
+        }
     }
+    
+    public void empilhaFolhas(int pos, NoArvoreBinaria<T> no){
+        //verifica se ja possui um objeto com essa posiçao
+        if (pilhaFolhas.pertence(pos)){            
+            //apenas adiciona ao hashset o no com a mesma posicao
+            pilhaFolhas.buscar(pos).getFolhas().add(no);
+        }else{
+            //cria uma nova pilha de folhas com a posicaos
+            PilhaFolhas novaPilha = new PilhaFolhas();
+            novaPilha.setIndex(pos);
+            novaPilha.getFolhas().add(no);
+            pilhaFolhas.inserir(novaPilha);
+        }
+    }
+    
 }

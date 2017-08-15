@@ -17,7 +17,7 @@ public class Main {
         NoArvoreBinaria<Integer> no2 = new NoArvoreBinaria<>(2);
         NoArvoreBinaria<Integer> no1 = new NoArvoreBinaria<>(1);
         
-        NoArvoreBinaria<Integer> no6 = new NoArvoreBinaria<>(6, no2, no1);
+        NoArvoreBinaria<Integer> no6 = new NoArvoreBinaria<>(6, no1, no2);
         NoArvoreBinaria<Integer> no3 = new NoArvoreBinaria<>(3, no6, null);
         
         NoArvoreBinaria<Integer> no7 = new NoArvoreBinaria<>(7, null, no6);
