@@ -9,7 +9,7 @@ import java.util.Arrays;
 
 /**
  *
- * @author Ana Paula Fidelis e Barbara Marquez
+ * @author Ana Paula Fidelis e Bárbara Marquez
  * @param <T>
  */
 public class Lista<T> {    

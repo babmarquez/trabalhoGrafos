@@ -9,7 +9,7 @@ import java.util.Random;
 
 /**
  *
- * @author Barbara
+ * @author Ana Paula Fidelis e Bárbara Marquez
  */
 public class VetorSoldado {
     private final int NUMEROS_RANDOM = 10;

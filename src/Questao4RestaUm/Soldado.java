@@ -7,7 +7,7 @@ package Questao4RestaUm;
 
 /**
  *
- * @author Barbara
+ * @author Ana Paula Fidelis e Bárbara Marquez
  */
 public class Soldado
 {

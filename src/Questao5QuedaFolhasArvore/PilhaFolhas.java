@@ -10,7 +10,7 @@ import java.util.HashSet;
 
 /**
  *
- * @author anaFidelis
+ * @author Ana Paula Fidelis e Bárbara Marquez
  */
 public class PilhaFolhas {
     private int index;

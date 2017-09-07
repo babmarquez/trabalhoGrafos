@@ -8,7 +8,7 @@ package Questao5QuedaFolhasArvore;
 
 /**
  *
- * @author anaFidelis
+ * @author Ana Paula Fidelis e Bárbara Marquez
  */
 public class Main {
     public static void main(String[] args) {

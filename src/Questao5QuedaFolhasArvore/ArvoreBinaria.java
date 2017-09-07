@@ -9,7 +9,7 @@ package Questao5QuedaFolhasArvore;
 
 /**
  *
- * @author anaFidelis
+ * @author Ana Paula Fidelis e Bárbara Marquez
  * @param <T>
  */
 public class ArvoreBinaria<T> {
